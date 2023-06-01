@@ -1,0 +1,160 @@
+<html>
+   
+   <head>
+    <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss5.css' %}">
+       <script type="text/javascript">
+        function validate()
+        {
+          var phonenumber = form1.phonenumber.value;
+          var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+          var emailaddress = form1.email.value;
+          var date = new Date(form1.dob.value);
+          var sysdate = new Date();
+          if(date >= sysdate)
+          {
+            alert("Date of Birth cannot be greater than today");
+            return false;
+          }
+          if(isNaN(form1.age.value))
+          {
+            alert("No alphabets allowed enter only numerical value");
+            return false;
+          }
+
+
+          if(parseInt(form1.age.value<18 && form1.age.value>45))
+          {
+            alert("age between 18 and 45.....");
+            return false;
+          }
+
+          if(isNaN(phonenumber))
+          {
+            alert("No alphabets allowed enter only numerical value");
+            return false;
+          }
+          if( emailaddress == ""){
+            alert("e-mail field cannot be empty");
+            form1.email.focus();
+            return false;
+          }
+          if (emailaddress.match(mailformat)){
+            form1.email.focus();
+            return true;
+          }else {
+            alert("Invalid e-mail address");
+            form1.email.focus();
+            return false;
+          }
+          if(parseInt(form1.experience.value>10))
+          {
+            alert("please enter valid experience....");
+            return false;
+          }
+          
+          return true;
+        }
+      </script>
+   </head>
+<body>
+
+<div class="container">
+  <div class="left">
+    
+    <div class="form">
+        <form method="post" action="/application/" name="form1" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-25">
+              <label> Vacancy Name:</label>
+            </div>
+            <div class="col-75">
+              <input type="text" class="form-field animation a3" placeholder="Vacancy Number" name="vacancynumber" value="{{data}}" readonly>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+              <label>Applicant Name:</label>
+            </div>
+              <div class="col-75">
+              <input type="text" class="form-field animation a3" placeholder="Applicant Name" name="applicantname" required>
+            </div>
+        </div>
+            <div class="row">
+              <div class="col-25">Address:</div>
+              <div class="col-75">
+              <input type="text" class="form-field animation a3" placeholder="Address" name="address" required>
+            </div>
+        </div>
+            <div class="row">
+              <div class="col-25">DOB:</div>
+              <div class="col-75">
+              <input type="date" class="form-field animation a3" placeholder="Date of Birth" name="dob" required>
+            </div>
+        </div>
+            <div class="row">
+              <div class="col-25"> Age:</div>
+              <div class="col-75">
+              <input type="tel" class="form-field animation a4" placeholder="Age" name="age" maxlength="3" minlength="1" required>
+            </div>
+        </div>
+            <div class="row">
+              <div class="col-25">Gender:</div>
+              <div class="col-75">
+              <input type="radio" class=" animation a4" placeholder="Gender" name="gender" value="male">Male
+              <input type="radio" class=" animation a4" placeholder="Gender" name="gender" value="female">Female
+              <input type="radio" class=" animation a4" placeholder="Gender" name="gender" value="others">Others
+            </div>
+        </div>
+            <div class="row">
+              <div class="col-25">Email:</div>
+              <div class="col-75">
+              <input type="email" class="form-field animation a4" placeholder="email" name="email" required>
+            </div>
+        </div>
+            <div class="row">
+              <div class="col-25">Phone:</div>
+              <div class="col-75">
+              <input type="tel" class="form-field animation a4" placeholder="Phone Number" name="phonenumber" maxlength="10" minlength="10" required>
+            </div>
+        </div>
+            <div class="row">
+              <div class="col-25">Qualification:</div>
+              <div class="col-75">
+              <input type="text" class="form-field animation a4" placeholder="qualification" name="qualification" required>
+            </div>
+        </div>
+            <div class="row">
+              <div class="col-25">Experience:</div>
+              <div class="col-75">
+              <input type="tel" class="form-field animation a4" placeholder="experience" minlength="0" maxlength="2" name="experience" required>
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">Resume</div>
+          <div class="col-75">
+          <input type="file" class="form-field animation a4" name="resume" required>
+        </div>
+    </div>
+              <input type="submit" value="Submit" onclick="return validate();">
+        
+            </form>
+     
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</body>
+</html>

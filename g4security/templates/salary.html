@@ -1,0 +1,32 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "employee.html" %}
+    <table id="customers">
+        <tr>
+            <th>month</th>
+            <th>year</th>
+            <th>basic salary</th>
+            <th>grows pay</th>
+            <th>deduction</th>
+            <th>netamount</th>
+         
+        
+        </tr>
+        {% for va in data1 %}   
+        <tr>
+            <td>{{va.month}}</td>
+            <td>{{va.year}}</td>
+            <td>{{va.basic_salary}}</td>
+            <td>{{va.grows_pay}}</td>
+            <td>{{va.deduction}}</td>
+           
+            <td>{{va.netamount}}</td>
+          
+           
+        </tr>
+        {% endfor %}
+    </table>
+</html>

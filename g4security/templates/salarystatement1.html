@@ -1,0 +1,104 @@
+<html>
+   
+   <head>
+    <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss1.css' %}">
+   </head>
+{% include "manager.html" %}
+<body>
+<div class="container">
+  <div class="left">
+    
+    <div class="form">
+        <form method="post" action="/salarystatement2/" name="form1">
+          {% csrf_token %}
+          
+          <div class="row">
+            <div class="col-25">
+      Month
+      </div>
+       <div class="col-75">
+        <select class="form-field animation a3" style="width:200px;" name="month">
+          <option value="0">please choose month </option>
+          <option value="january">january</option>
+          <option value="february">individual</option>
+          </select>
+       </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+      year
+      </div>
+       <div class="col-75">
+        <select class="form-field animation a3" style="width:200px;" name="year">
+          <option value="0">please choose year </option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+          </select>
+       </div>
+          </div>
+
+
+
+
+     
+      <div class="row">
+        <div class="col-25">
+          Basic Salary:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a3" value="{{b}}" name="basicsalary" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+        grows pay
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a4" value="{{g}}" name="g1" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+        deduction
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a4" value="{{d}}" name="d" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          net salary
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a4" value="{{n}}" name="n" readonly>
+    </div>
+  </div>
+     
+      <div class="row">
+        <div class="col-25">
+        employee id
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a4" value="{{id}}" name="employeeid" readonly>
+    </div>
+  </div>
+  <button type="submit" class="animation a6">ADD</button>
+    </form>
+     
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</body>
+</html>

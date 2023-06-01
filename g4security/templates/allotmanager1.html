@@ -1,0 +1,85 @@
+<html>
+   
+   <head>
+    <script type="text/javascript">
+
+        function valid()
+        {
+          if(form1.password.value == "") {
+            alert("Error: password cannot be blank!");
+            form1.password.focus();
+            return false;
+          }
+          re = /^\w+$/;
+          if(!re.test(form1.password.value)) {
+            alert("Error: Username must contain only letters, numbers and underscores!");
+            form1.password.focus();
+            return false;
+          }
+      
+          
+           
+            re = /[0-9]/;
+            if(!re.test(form1.password.value)) {
+              alert("Error: password must contain at least one number (0-9)!");
+              form1.password.focus();
+              return false;
+            }
+            re = /[a-z]/;
+            if(!re.test(form1.password.value)) {
+              alert("Error: password must contain at least one lowercase letter (a-z)!");
+              form1.password.focus();
+              return false;
+            }
+            re = /[A-Z]/;
+            if(!re.test(form1.password.value)) {
+              alert("Error: password must contain at least one uppercase letter (A-Z)!");
+              form1.password.focus();
+              return false;
+            }
+         
+          alert("You entered a valid password: " + form.pwd1.value);
+          return true;
+        }
+      
+      </script>
+    <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss1.css' %}">
+   </head>
+{% include "adminheader.html" %}
+<body>
+<div class="container">
+  <div class="left">
+    
+    <div class="form">
+        <form method="post" action="/allotmanager2/{{data1.employee_id}}" name="form1">
+          {% csrf_token %}
+          
+          <div class="row">
+            <div class="col-25">
+          Password:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="Password" name="password" required>
+    </div>
+  </div>
+    
+  <button type="submit" class="animation a6" onclick="return valid();">ADD</button>
+    </form>
+     
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</body>
+</html>

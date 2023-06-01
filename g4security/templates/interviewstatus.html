@@ -1,0 +1,30 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "applicant.html" %}
+    <table id="customers">
+        <tr>
+            <th>Interview ID</th>
+            <th>vacancy number</th>
+            <th>application number</th>
+            <th>Interview Date</th>
+            <th>Time</th>
+            <th>Venue</th>
+            <th>status</th>
+        </tr>
+        {% for va in data1 %}   
+        <tr>
+            <td>{{va.interview_id}}</td>
+            <td>{{va.vacancy_no}}</td>
+            <td>{{va.application_no}}</td>
+            <td>{{va.interview_date}}</td>
+            <td>{{va.time}}</td>
+            <td>{{va.venue}}</td>
+            <td>{{va.status}}</td>
+          
+        </tr>
+        {% endfor %}
+    </table>
+</html>

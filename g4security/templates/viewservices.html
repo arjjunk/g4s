@@ -1,0 +1,91 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "public.html" %}
+    <table id="customers">
+        <tr>
+            <th>
+                job id
+            </th>
+            <th>
+                job name
+            </th>
+            <th>
+                qualification
+            </th>
+            <th>
+                experience
+            </th>/
+            <th>  
+                ba sic salary
+            </th> 
+            <th> 
+                ta 
+            </th> 
+            <th> 
+                  da
+            </th>
+            <th>
+                 hra
+             </th>
+             <th>
+                  lic
+            </th>
+            <th>
+                pf
+            </th>
+            <th>
+                loan limit
+            </th>
+            <th>
+                ----
+            </th>
+
+
+        </tr>
+        <tr>
+            {% for jm in data1 %}
+            <td>
+                {{jm.job_id}}
+             </td>
+            <td>
+                {{jm.job_name}}
+            </td>
+            <td>
+                {{jm.qualification}}
+            </td>
+            <td>
+                {{jm.experience}}
+            </td>
+            <td>
+                {{jm.basic_sal}}
+            </td>
+            <td>
+                {{jm.ta}}
+            </td>
+            <td>
+                {{jm.da}}
+            </td>
+            <td>
+                {{jm.hra}}
+            </td>
+            <td>
+                {{jm.lic}}
+            </td>
+            <td>
+                {{jm.pf}}
+            </td>
+            <td>
+                {{jm.loan_limit}}
+            </td>
+            <td>
+                <a href="/viewvacancy/{{jm.job_id}}">View Vacancy</a>
+            </td>
+</tr>
+{% endfor %}
+
+        
+    </table>
+</html>

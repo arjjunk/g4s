@@ -1,0 +1,72 @@
+<html>
+   
+   <head>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'sample2.css' %}">
+   </head>
+
+{% include "adminheader.html" %}
+<div class="container">
+  <div class="left">
+    
+    <div class="form">
+        <form method="post" action="/addselection/">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-25">
+              Interview ID: 
+            </div>
+            <div class="col-75">
+      <input type="text" class="form-field animation a3" value="{{data.interview_id}}" name="interview_id" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Applicant Number:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" name="applicant_name" value="{{data.application_no}}" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Remark:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="Remark" name="remark" required> 
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Reporting Date:
+        </div>
+        <div class="col-75">
+      <input type="date" class="form-field animation a3" placeholder="Reporting Date" name="reporting_date" required>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Time:
+        </div>
+        <div class="col-75">
+      <input type="time" class="form-field animation a4" placeholder="time" name="time" required>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Reporting Office:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="Reporting Office" name="reporting_office" required>
+    </div>
+  </div>
+  <input type="submit" name="submit" value="submit">
+
+
+    </form>
+     
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

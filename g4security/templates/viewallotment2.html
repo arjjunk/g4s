@@ -1,0 +1,39 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "client.html" %}
+    <table id="customers">
+        <tr>
+            <th>vacancy name</th>
+            <th>applicantname</th>
+            <th>address</th>
+            <th>dateofbirth</th>
+            <th>age</th>
+            <th>gender</th>
+            <th>email</th>
+            <th>phonenumber</th>
+            <th>qualification</th>
+            <th>experience</th>
+            <th>status</th>
+        
+        
+        </tr>
+      
+        <tr>
+            <td>{{va.vacancyname}}</td>
+            <td>{{va.name}}</td>
+            <td>{{va.address}}</td>
+            <td>{{va.date_of_birth}}</td>
+            <td>{{va.age}}</td>
+            <td>{{va.gender}}</td>
+            <td>{{va.email}}</td>
+            <td>{{va.phone}}</td>
+            <td>{{va.qualification}}</td>
+            <td>{{va.experience}}</td>
+            <td>{{va.status}}</td>
+        </tr>
+
+    </table>
+</html>

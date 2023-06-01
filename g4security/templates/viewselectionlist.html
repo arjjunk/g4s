@@ -1,0 +1,72 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'table.css' %}">
+    </head>
+    {% include "adminheader.html" %}
+    <table id="customers">
+        <tr>
+            <th>
+                selection id
+            </th>
+            <th>
+                interview id
+            </th>
+            <th>
+                applicant number
+            </th>
+            <th>
+                remark
+            </th>/
+            <th>  
+                reporting date
+            </th> 
+            <th> 
+                time
+            </th> 
+            <th> 
+                  reporting office
+            </th>
+            <th>
+                ----
+            </th>
+            
+<th></th>
+
+        </tr>
+        <tr>
+            {% for sl in data1 %}
+            <td>
+                {{sl.selection_id}}
+             </td>
+            <td>
+                {{sl.interview_id}}
+            </td>
+            <td>
+                {{sl.applicant_name}}
+            </td>
+            <td>
+                {{sl.remark}}
+            </td>
+            <td>
+                {{sl.reporting_date}}
+            </td>
+            <td>
+                {{sl.time}}
+            </td>
+            <td>
+                {{sl.reporting_office}}
+            </td>
+            <td>
+                <a href="/applicantdetails1/{{sl.applicant_name}}">applicant details</a>
+            </td>
+            <td>
+                <a href="/appoint/{{sl.selection_id}}">Appoint</a>
+            </td>
+                
+</tr>
+{% endfor %}
+
+        
+    </table>
+</html>

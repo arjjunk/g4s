@@ -1,0 +1,65 @@
+<html>
+   
+   <head>
+    <style>
+        button{
+          width:150px;
+          height:40px;
+          background-color: rgb(73, 70, 233);
+          border-radius: 5px;
+          border-color: bisque;
+          color:beige;
+        }
+      </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss1.css' %}">
+   </head>
+{% include "employee.html" %}
+
+<div class="container">
+  <div class="left">
+   
+    <div class="form">
+        <form method="POST" action="/applyleave/">
+          {% csrf_token %} 
+          <div class="row">
+            <div class="col-25">
+              Employee ID:
+            </div>
+            <div class="col-75">
+      <input type="text" class="form-field animation a3" value="{{id}}" name="employeid" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+        Job Name
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" value="{{data3.job_name}}" name="jobname" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Leave Date
+        </div>
+        <div class="col-75">
+      <input type="date" class="form-field animation a3" placeholder="leave date" name="leavedate" required>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          no of days
+        </div>
+        <div class="col-75"> 
+      <input type="number" class="form-field animation a3" placeholder="no of days" name="days" required>
+    </div>
+  </div>
+    
+      <button>submit</button>
+    </form>
+      
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

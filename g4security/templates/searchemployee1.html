@@ -1,0 +1,56 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "public.html" %}
+    <table id="customers">
+        <tr>
+            <th>
+                Vacancy number
+            </th>
+            <th>
+                Job id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                No of Vacancy
+            </th>
+            <th>
+                Age Limit
+            </th>
+            <th>
+                Application last date
+            </th>
+           <th></th> 
+           
+        </tr>
+        <tr>
+            {% for vv in data1 %}
+            <td>
+                {{vv.vac_no}}
+             </td>
+            <td>
+                {{vv.job_id}}
+            </td>
+            <td>
+                {{vv.name}}
+            </td>
+            <td>
+                {{vv.no_of_vac}}
+            </td>
+            <td>
+                {{vv.age_limit}}
+            </td>
+            <td>
+                {{vv.appli_last_date}}
+            </td>
+            <td> <a href="/searchemployee2/{{vv.name}}">view employees</a></td>
+        </tr>
+{% endfor %}
+
+        
+    </table>
+</html>

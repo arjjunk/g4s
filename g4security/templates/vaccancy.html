@@ -1,0 +1,86 @@
+<html>
+   
+   <head>
+    <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+    <script>
+      function valid()
+      {
+        enterDate=new Date(f1.applicationlastdate.value);
+                curDate= new Date();
+                if(curDate>enterDate)
+                {
+                    document.write("Invalid date");
+                    f1.applicationlastdate.focus();
+                    return false;
+                }
+               return true;
+      }
+    </script>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss1.css' %}">
+   </head>
+
+{% include "adminheader.html" %}
+<div class="container">
+  <div class="left">
+    <div class="header">
+     
+      
+    </div>
+    <div class="form">
+        <form method="POST" action="/addvacancy/" name="f1">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-25">
+              Job Name:
+            </div>
+            <div class="col-75">
+      <select name="jobid" class="form-field animation a3" style="width:200px">
+        {% for ct in data1 %}
+          <option value="{{ct.job_id}}">{{ct.job_name}}</option>
+      {% endfor %}
+      </select> 
+    </div>
+  </div>
+     
+      <div class="row">
+        <div class="col-25">
+          No Of Vacancy:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="No Of Vacancy" name="noofvacancy" required>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Age Limit:
+        </div>
+        <div class="col-75"> 
+      <input type="number" class="form-field animation a4" placeholder="Age Limit" name="agelimit" required>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Application Last Date:
+        </div>
+        <div class="col-75">
+      <input type="date" class="form-field animation a4" placeholder="Application Last Date" name="applicationlastdate" required>
+    </div>
+  </div>
+      <button type="submit" name="submit" onClick="return valid();">submit</button>
+    </form>
+      
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

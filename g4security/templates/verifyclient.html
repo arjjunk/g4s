@@ -1,0 +1,63 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "adminheader.html" %}
+    <table id="customers">
+        <tr>
+            <th>
+                Client Id
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Name 
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                -----
+            </th>
+            <th>
+                ------
+            </th>
+        </tr>
+        <tr>
+            {% for vc in data1 %}
+            <td>
+                {{vc.client_id}}
+            </td>
+            <td>
+                {{vc.category}}
+            </td>
+            <td>
+                {{vc.name}}
+            </td>
+            <td>
+                {{vc.address}}
+            </td>
+            <td>
+                {{vc.phone}}
+            </td>
+            <td>
+                {{vc.email}}
+            </td>
+            <td>
+                <a href="/acceptclient/{{vc.id}}">accept</a>
+            </td>
+            <td>
+            <a href="/rejectclient/{{vc.id}}">reject</a>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>

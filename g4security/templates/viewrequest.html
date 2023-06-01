@@ -1,0 +1,31 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "manager.html" %}
+    <table id="customers">
+        <tr>
+            <th>Request ID</th>
+       
+            <th>Service Name</th>
+            <th>Client ID</th>
+            <th>No Of Employees</th>
+            <th>Request Date</th>
+            <th>Status</th>
+        <th></th>
+        </tr>
+        {% for cr in data1 %}   
+        <tr>
+            <td>{{cr.request_id}}</td>
+          
+            <td>{{cr.service_name}}</td>
+            <td>{{cr.client_id}}</td>
+            <td>{{cr.no_of_employees}}</td>
+            <td>{{cr.request_date}}</td>
+            <td>{{cr.status}}</td>
+            <td><a href="/acceptrequest/{{cr.id}}">Accept</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</html>

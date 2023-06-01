@@ -1,0 +1,48 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "manager.html" %}
+    <table id="customers">
+        <tr>
+            <th>
+                Client Id
+            </th>
+            <th>
+               employee id
+            </th>
+            <th>
+               allotment date
+            </th>
+            <th>
+                status
+            </th>
+           
+            <th>
+                -----
+            </th>
+        </tr>
+        <tr>
+            {% for vc in data %}
+            <td>
+                {{vc.client_id}}
+            </td>
+            <td>
+                {{vc.emp_id}}
+            </td>
+            <td>
+                {{vc.allotment_date}}
+            </td>
+            <td>
+                {{vc.status}}
+            </td>
+           
+           
+            <td>
+                <a href="/updaterequest1/{{vc.id}}">Update status</a>
+                </td>
+        </tr>
+        {% endfor %}
+
+    </table>

@@ -1,0 +1,29 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "adminheader.html" %}
+    <table id="customers">
+        <tr>
+            <th>
+                Feedback
+            </th>
+            <th>
+                Date
+            </th>
+          
+        </tr>
+        <tr>
+            {% for vc in data1 %}
+            <td>
+                {{vc.feedback}}
+            </td>
+            <td>
+                {{vc.date}}
+            </td>
+           
+        </tr>
+        {% endfor %}
+
+    </table>

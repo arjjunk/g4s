@@ -1,0 +1,128 @@
+<html>
+   
+   <head>
+     {% include "adminheader.html" %}
+    <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss1.css' %}">
+       <style>
+label{
+    margin-left:100px;
+}
+input{
+    margin-left:40px;
+}
+
+           </style>
+
+   </head>
+
+
+<div class="container">
+  <div class="left">
+    
+    <div class="form">
+        <form method="post" action="/updatejob/{{data1.id}}">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-25">
+          Job Name:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="Job Name" name="jobname" value="{{data1.job_name}}" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+      Qualification:
+    </div>
+    <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="Qualification" name="qualification" value="{{data1.qualification}}" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+      Experience:
+    </div>
+    <div class="col-75">
+      
+      <input type="text" class="form-field animation a3" placeholder="Experience" name="experience" value="{{data1.experience}}"> 
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Basic Salary:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a3" placeholder="Basic Salary" name="basicsalary" value="{{data1.basic_sal}}">
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          TA:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a4" placeholder="TA" name="ta" value="{{data1.ta}}" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          DA:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a4" placeholder="DA" name="da" value="{{data1.da}}" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          HRA:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a4" placeholder="HRA" name="hra" value="{{data1.hra}}" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          LIC:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a4" placeholder="LIC" name="lic" value="{{data1.lic}}" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          PF:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a4" placeholder="PF" name="pf" value="{{data1.pf}}" readonly> 
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Loan Limit:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a4" placeholder="Loan Limit" name="loanlimit" value="{{data1.loan_limit}}" readonly>
+    </div>
+  </div>
+  <button type="submit" class="animation a6">CHANGE</button>
+      
+
+    </form>
+
+    </form>
+     
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

@@ -1,0 +1,82 @@
+<html>
+   
+   <head>
+    <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss1.css' %}">
+   </head>
+{% include "adminheader.html" %}
+<body>
+<div class="container">
+  <div class="left">
+    
+    <div class="form">
+        <form method="post" action="/jobmaster/" name="form1">
+          {% csrf_token %}
+          
+          <div class="row">
+            <div class="col-25">
+          Job Name:
+        </div>
+        <div class="col-75">
+          <select class="form-field animation a3" name="jobname" required>
+            <option value="security guard">Security Guard</option>
+            <option value="Screener">Screener</option>
+            <option value="Surveillance Officer">Surveillance Officer</option>
+            <option value="Patrol Officer">Patrol Officer</option>
+            <option value="Security Escort">Security Escort</option>
+            </select>
+        </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+      Qualification:
+    </div>
+    <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="Qualification" name="qualification" required>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+      Experience:
+    </div>
+    <div class="col-75">
+      
+      <input type="text" class="form-field animation a3" placeholder="Experience" name="experience" required> 
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Basic Salary:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a3" placeholder="Basic Salary" name="basicsalary" required>
+    </div>
+  </div>
+    
+      <div class="row">
+        <div class="col-25">
+          Loan Limit:
+        </div>
+        <div class="col-75">
+      <input type="number" class="form-field animation a4" placeholder="Loan Limit" name="loanlimit" required>
+    </div>
+  </div>
+  <button type="submit" class="animation a6">ADD</button>
+    </form>
+     
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</body>
+</html>

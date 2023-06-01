@@ -1,0 +1,66 @@
+<html>
+   
+   <head>
+    <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss1.css' %}">
+   </head>
+{% include "manager.html" %}
+<body>
+<div class="container">
+  <div class="left">
+    
+    <div class="form">
+        <form method="post" action="/allotemployee/" name="form1">
+          {% csrf_token %}
+          
+          <div class="row">
+            <div class="col-25">
+        client id
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" value="{{data.client_id}}" name="clientid" readonly>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+Employee name
+</div>
+<div class="col-75">
+<select class="form-field animation a3" style="width:200px;" name="employee">
+  <option value="0">please choose Employee</option>
+  {% for data2 in data2 %}
+  <option value="{{data2.employee_id}}">{{data2.name}}</option>
+  {% endfor %}
+  </select>
+</div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+      request id
+    </div>
+    <div class="col-75">
+      
+      <input type="text" class="form-field animation a3" value="{{data.request_id}}" name="requestid" readonly> 
+    </div>
+  </div>
+      
+      
+  <button type="submit" class="animation a6">ADD</button>
+    </form>
+     
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</body>
+</html>

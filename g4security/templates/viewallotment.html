@@ -1,0 +1,44 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "client.html" %}
+    <table id="customers">
+        <tr>
+          
+            <th>
+               employee id
+            </th>
+            <th>
+               allotment date
+            </th>
+            <th>
+                status
+            </th>
+           
+            <th>
+                -----
+            </th>
+        </tr>
+        <tr>
+            {% for vc in data %}
+           
+            <td>
+                {{vc.emp_id}}
+            </td>
+            <td>
+                {{vc.allotment_date}}
+            </td>
+            <td>
+                {{vc.status}}
+            </td>
+           
+           
+            <td>
+                <a href="/viewallotment2/{{vc.emp_id}}">employee details</a>
+                </td>
+        </tr>
+        {% endfor %}
+
+    </table>

@@ -1,0 +1,77 @@
+<html>
+   
+   <head>
+    <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss1.css' %}">
+   </head>
+{% include "adminheader.html" %}
+<body>
+<div class="container">
+  <div class="left">
+    <div class="header">
+     
+    </div>
+    <div class="form">
+        <form method="post" action="/addinterview/" name="form1">
+          {% csrf_token %} 
+          <div class="row">
+            <div class="col-25">
+              Vacancy Name:
+            </div>
+            <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="vacancy number" name="vacancy_no" value="{{data.vac_no}}" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          
+              Application Number:
+            </div>
+            <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="application number" name="application_no" value="{{data.appli_no}}" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Interview Date:
+        </div>
+        <div class="col-75">
+      <input type="date" class="form-field animation a3" placeholder="Interview Date" name="interview_date" required> 
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Time:
+        </div>
+        <div class="col-75">
+      <input type="time" class="form-field animation a3" placeholder="Time" name="time" required>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Venue:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a4" placeholder="venue" name="venue" required>
+    </div>
+  </div>
+      <button type="submit">submit</button>
+
+    </form>
+     
+  </div>
+</div>
+<div class="right"></div>
+</div>
+</body>
+</html>

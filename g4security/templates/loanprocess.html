@@ -1,0 +1,34 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 't.css' %}">
+    </head>
+    {% include "manager.html" %}
+    <table id="customers">
+        <tr>
+            <th>employee id</th>
+            <th>loan amount</th>
+            <th>recovery amount</th>
+            <th>loan application date</th>
+          
+            <th>status</th>
+         
+            <th></th>
+        
+        
+        </tr>
+        {% for va in data1 %}   
+        <tr>
+            <td>{{va.employee_id}}</td>
+            <td>{{va.loan_amount}}</td>
+            <td>{{va.recovery_amount}}</td>
+            <td>{{va.loan_application_date}}</td>
+            <td>{{va.status}}</td>
+           
+           
+            <td><a href="/loanprocess1/{{va.id}}">Approve</a></td></tr>
+           
+        </tr>
+        {% endfor %}
+    </table>
+</html>

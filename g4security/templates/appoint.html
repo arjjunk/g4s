@@ -1,0 +1,127 @@
+<html> <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'ss.css' %}">
+   </head>
+{% include "adminheader.html" %}
+<body>
+<div class="container" style="height:800px;">
+  <div class="left">
+    
+    <div class="form" style="margin-top:260px;">
+        <form method="post" action="/addemployee/{{data.id}}" name="form1">
+          {% csrf_token %}
+
+
+
+        
+
+ <div class="row">
+            <div class="col-25">
+
+          vacancy Name:
+        </div>
+        <div class="col-75">
+     
+          <input type="text" class="form-field animation a3" placeholder="job id" name="job_id" value="{{data1.vac_no}}" readonly>
+     
+     </div></div>
+     <div class="row">
+      <div class="col-25">
+          Name:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="name" name="name" value="{{data1.applicant_name}}" readonly>
+    </div></div>
+    <div class="row">
+      <div class="col-25">
+      Address:
+    </div>
+    <div class="col-75">
+      <input type="text" class="form-field animation a3" placeholder="address" name="address" value="{{data1.address}}" readonly> 
+     </div></div>
+     <div class="row">
+      <div class="col-25">
+      Phone:
+    </div>
+    <div class="col-75">
+      
+      <input type="number" class="form-field animation a3" placeholder="phone" name="phone" value="{{data1.phone}}" readonly> 
+    
+    </div></div>
+    <div class="row">
+      <div class="col-25">
+      Email:
+    </div>
+    <div class="col-75">
+      <input type="email" class="form-field animation a3" placeholder="email" name="email" value="{{data1.mail}}" aria-readonly=""><br>
+     </div></div>
+     <div class="row">
+      <div class="col-25">
+      DOB:
+    </div>
+    <div class="col-75">
+      <input type="text" class="form-field animation a5" placeholder="dob" name="date_of_birth" value="{{data1.date_of_birth}}" readonly>
+      </div></div>
+      <div class="row">
+        <div class="col-25">
+      Age:
+    </div>
+    <div class="col-75">
+      <input type="text" class="form-field animation a6" placeholder="age" name="age" value="{{data1.age}}">
+     </div></div>
+     <div class="row">
+      <div class="col-25">
+      Gender:
+    </div>
+    <div class="col-75">
+      <input type="text" class="form-field animation a4" placeholder="Gender" name="gender" value="{{data1.gender}}" readonly>
+      </div></div>
+      <div class="row">
+        <div class="col-25">
+      Qualification:
+    </div>
+    <div class="col-75">
+      <input type="text" class="form-field animation a4" placeholder="qualification" name="qualification" value="{{data1.qualification}}" readonly>
+      
+    </div></div>
+      
+      <div class="row">
+        <div class="col-25">
+      Experience:
+    </div>
+    <div class="col-75">
+      <input type="text" class="form-field animation a4" placeholder="experience" name="experience" value="{{data1.experience}}" readonly>
+     </div></div>
+     <div class="row">
+      <div class="col-25">
+      Remark:
+    </div>
+    <div class="col-75">
+      <input type="text" class="form-field animation a4" placeholder="remark" name="remark" required>
+      </div></div>
+      <div class="row">
+        <div class="col-25">
+      DOJ:
+    </div>
+    <div class="col-75">
+      <input type="date" class="form-field animation a4" placeholder="date of join" name="date_of_join" required>
+    </div></div>
+      <button>SUBMIT</button>
+
+    </form>
+
+     
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>

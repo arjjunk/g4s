@@ -1,0 +1,67 @@
+<html>
+   
+   <head>
+    <style>
+      button{
+        width:150px;
+        height:40px;
+        background-color: rgb(73, 70, 233);
+        border-radius: 5px;
+        border-color: bisque;
+        color:beige;
+      }
+    </style>
+     {% load static %}
+       <link rel="stylesheet" href="{% static 'sample2.css' %}">
+   </head>
+
+{% include "client.html" %}
+<div class="container">
+  <div class="left">
+    
+    <div class="form">
+        <form method="post" action="/addrequest/" >
+          {% csrf_token %} 
+          <div class="row">
+            <div class="col-25">
+       Job Master ID:
+      </div>
+      <div class="col-75">
+      <input type="text" class="form-field animation a3" value="{{data1.job_id}}" name="jobmaster_id" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Service Name:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" value="{{data1.job_name}}" name="service_name" readonly>
+    </div>
+  </div>
+      <div class="row">
+        <div class="col-25">
+          Client ID:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a3" value="{{uid}}" name="client_id" readonly>
+    </div>
+  </div> 
+      
+      <div class="row">
+        <div class="col-25">
+          No Of Employees:
+        </div>
+        <div class="col-75">
+      <input type="text" class="form-field animation a4" placeholder="No of employees" name="no_of_employees" required>
+    </div>
+  </div>
+      
+      <button>SUBMIT</button>
+
+    </form>
+     
+    </div>
+  </div>
+  <div class="right"></div>
+</div>
+</html>
